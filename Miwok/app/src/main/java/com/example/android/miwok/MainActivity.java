@@ -15,16 +15,58 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView numberListView;
+    private TextView familyListView;
+    private TextView colorListView;
+    private TextView phraseListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        numberListView = (TextView) findViewById(R.id.numbers);
+        numberListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent numberIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numberIntent);
+            }
+        });
+
+        familyListView = (TextView) findViewById(R.id.family);
+        familyListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(familyIntent);
+            }
+        });
+
+        colorListView = (TextView) findViewById(R.id.colors);
+        colorListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent colorIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorIntent);
+            }
+        });
+
+        phraseListView = (TextView) findViewById(R.id.phrases);
+        phraseListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phraseIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phraseIntent);
+            }
+        });
     }
 }
